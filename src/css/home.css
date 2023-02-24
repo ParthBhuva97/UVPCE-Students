@@ -6,7 +6,6 @@
 
 .main{
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-direction: column;
     height: 100vh;
@@ -15,6 +14,9 @@
     background-size: cover;
     background-position-x: center;
     background-position-y: center;
+}
+.landingContainer{
+  margin-top: 5rem;
 }
 
 .title{
@@ -115,4 +117,68 @@
     width: 100vw;
     height: 100vh;
     background-color: #F8F8FF;
+  }
+
+  .container{
+    display: inline-block;
+  }
+  .typed-out{
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    animation: 
+      typing 1s forwards,
+      blink-caret .75s step-end infinite;
+    font-size: 3rem;
+    color: #F8F8FF;
+    width: 0;
+  }
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  .typed-out-child{
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    animation: 
+      typing-child 2s infinite,
+      blink-caret .75s step-end infinite;
+    font-size: 2.2rem;
+    animation-delay: 1s;
+    color: #F8F8FF;
+    width: 0;
+  }
+  @keyframes typing-child {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  }
+
+  .btn-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  @media (width <= 375px){
+    .btn-row{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .typed-out{
+      font-size: 2.5rem;
+    }
+    .typed-out-child{
+      font-size: 2rem;
+    }
   }

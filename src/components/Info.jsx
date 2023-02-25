@@ -77,6 +77,7 @@ export default function Info() {
                     <Form.Control
                       type="text"
                       placeholder="Full Name"
+                      required
                       onChange={(event) => {
                         setName(event.target.value);
                       }}
@@ -88,6 +89,7 @@ export default function Info() {
                     <Form.Control
                       type="text"
                       placeholder="Course"
+                      required
                       onChange={(event) => {
                         setCourse(event.target.value);
                       }}
@@ -98,6 +100,7 @@ export default function Info() {
                     <Form.Control
                       type="year"
                       placeholder="Year"
+                      required
                       onChange={(event) => {
                         setYear(event.target.value);
                       }}
@@ -112,6 +115,7 @@ export default function Info() {
                       min="0"
                       max="8"
                       placeholder="Semester"
+                      required
                       onChange={(event) => {
                         setSem(event.target.value);
                       }}
@@ -122,6 +126,7 @@ export default function Info() {
                     <Form.Control
                       type="text"
                       placeholder="State"
+                      required
                       onChange={(event) => {
                         setPlace(event.target.value);
                       }}
@@ -136,6 +141,7 @@ export default function Info() {
                       rows="3"
                       cols="60"
                       placeholder="Tell Us More About Yourself"
+                      required
                       onChange={(event) => {
                         setAbout(event.target.value);
                       }}
@@ -152,6 +158,7 @@ export default function Info() {
                       placeholder="Insta Link (i.e: instagram.com/insta_user/)"
                       aria-label="insta"
                       aria-describedby="basic-addon1"
+                      required
                       onChange={(event) => {
                         setInsta(event.target.value);
                       }}
@@ -165,6 +172,7 @@ export default function Info() {
                       placeholder="Github Link"
                       aria-label="github"
                       aria-describedby="basic-addon1"
+                      required
                       onChange={(event) => {
                         setGithub(event.target.value);
                       }}
@@ -172,7 +180,15 @@ export default function Info() {
                   </InputGroup>
                 </Row>
 
-                <Button variant="primary" onClick={handleShow}>
+                <Button type="submit" variant="primary" onClick={() => {
+                  if(insta !== '' && github !== ''){
+                    handleShow();
+                  }
+                  else{
+                    alert('Please Enter Valid Data');
+                    handleClose();
+                  }
+                }}>
                   Submit
                 </Button>
               </Form>
@@ -198,7 +214,7 @@ export default function Info() {
               <Button
                 variant="primary"
                 onClick={() => {
-                  addData();
+                    addData();
                 }}
               >
                 Proceed

@@ -42,7 +42,7 @@ export default function Home() {
                 className="button-30 mt-1 mx-3"
                 onClick={() => {
                   document
-                    .getElementById("section-1")
+                    .getElementById("studentsinfo")
                     .scrollIntoView({ behaviour: "smooth" });
                 }}
               >
@@ -52,7 +52,7 @@ export default function Home() {
                 className="button-30 mt-1 mx-3"
                 onClick={() => {
                   document
-                    .getElementById("section-2")
+                    .getElementById("materials")
                     .scrollIntoView({ behaviour: "smooth" });
                 }}
               >
@@ -61,7 +61,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="container-fluid students" id="section-1">
+        <div className="container-fluid students" id="studentsinfo">
           <h1 align="center" className="mt-5">
             Know Your Peers
           </h1>
@@ -96,16 +96,10 @@ export default function Home() {
             })}
           </div>
         </div>
-        <div
-          className="container-fluid d-flex align-items-center justify-content-center"
-          id="section-2"
-        >
-          <div className="row d-flex">
-            <div className="col">
-              <h1>Materials</h1>
-            </div>
-          </div>
-        </div>
+        <div className="materialsContent" id="materials">
+        <h1>Materials</h1>
+        <p className="px-4" align="center">This page will display the available materials to help students with their curriculum</p>
+      </div>
       </div>
     </>
   );

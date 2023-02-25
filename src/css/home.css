@@ -113,9 +113,13 @@
     font-size: x-large;
   }
 
-  #section-2{
+  .materialsContent{
     width: 100vw;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     background-color: #F8F8FF;
   }
 

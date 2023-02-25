@@ -18,8 +18,8 @@ export default function Navigation() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
             <NavLink className="navComp" to="/">Home</NavLink>
-            <NavLink className="navComp" to="/info">Submit</NavLink>
-            <NavLink className="navComp" to="#section-2"><RxDiscordLogo/></NavLink>
+            <NavLink className="navComp" to="/about">About You</NavLink>
+            <NavLink className="navComp" to="/contribute">Contribute</NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>

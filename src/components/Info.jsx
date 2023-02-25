@@ -62,7 +62,7 @@ export default function Info() {
         <Navigation />
       </NavbarStyle>
       <div className="introduce">
-        <div className="container my-3">
+        <div className="container mt-5">
           <div className="row">
             <div className="col col-lg-12">
               <h1 align="center">Introduce Yourself</h1>

@@ -7,7 +7,7 @@
     width: 100vw;
     height: 85vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: start;
     flex-direction: column;
 }

@@ -6,12 +6,12 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import { useState } from "react";
 
 const NavbarStyle = styled.div`
-  background-color: #f8f8ff;
+  background-color: #06283D;
   .navComp {
-    color: black !important;
+    color: white !important;
   }
   .brand {
-    color: black !important;
+    color: white !important;
   }
   .navbar-toggler {
     background-color: black !important;

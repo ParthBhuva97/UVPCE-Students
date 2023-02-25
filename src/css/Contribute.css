@@ -5,9 +5,9 @@
 
 .mainContent{
     width: 100vw;
-    height: 85vh;
     display: flex;
     align-items: left;
     justify-content: start;
     flex-direction: column;
+    background-color: #F8F8FF;
 }

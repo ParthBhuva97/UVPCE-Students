@@ -55,7 +55,7 @@ export default function Contribute() {
             Before you can contribute to our project, you'll need to create a
             GitHub account if you don't already have one. GitHub is a platform
             where developers can collaborate on open-source projects. It's free
-            to create an account, and you can sign up at github.com.
+            to create an account, and you can sign up at <a href="https://github.com/">github.com</a>.
           </p>
         </div>
         <div className="content s-2 mx-5">
@@ -64,8 +64,10 @@ export default function Contribute() {
             Once you've created your GitHub account, you'll need to fork our
             repository. Forking a repository creates a copy of the project on
             your own GitHub account, which you can then modify and submit
-            changes back to us for review. To fork our repository:
+            changes back to us for review. 
           </p>
+          <h6>Repository Link: <a href="https://github.com/ParthBhuva97/UVPCE-Students">UVPCE-Students</a></h6>
+          <p>To fork our repository:</p>
           <ol>
             <li>Navigate to our repository on GitHub.</li>
             <li>

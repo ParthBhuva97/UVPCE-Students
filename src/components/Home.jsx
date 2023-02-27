@@ -13,10 +13,32 @@ const NavbarStyle = styled.div`
 
 export default function Home() {
   const [studentsList, setStudentsList] = useState([]);
+  const [semesterList, setSemesterList] = useState([]);
+
+  const sem = [
+    "Sem 1",
+    "Sem 2",
+    "Sem 3",
+    "Sem 4",
+    "Sem 5",
+    "Sem 6",
+    "Sem 7",
+    "Sem 8",
+  ];
+
+  // semesterList will not be needed here. Must be used in next page
   useEffect(() => {
-    Axios.get("https://sever-parthbhuva97.vercel.app/read").then((response) => {
-      setStudentsList(response.data);
-    });
+    Axios.get("https://sever-parthbhuva97.vercel.app/getStudents").then(
+      (response) => {
+        setStudentsList(response.data);
+      }
+    );
+
+    Axios.get("https://sever-parthbhuva97.vercel.app/getSem").then(
+      (response) => {
+        setSemesterList(response.data);
+      }
+    );
   }, []);
 
   return (
@@ -27,12 +49,12 @@ export default function Home() {
         </NavbarStyle>
         <div className="main">
           <div className="container landingContainer d-flex align-items-center flex-column">
-            <div className="textcontainer mb-5">            
-            <div className="text-container text-center">
-            <div className="typed-out my-2 px-2">UVPCE Students</div>
+            <div className="textcontainer mb-5">
+              <div className="text-container text-center">
+                <div className="typed-out my-2 px-2">UVPCE Students</div>
 
-              <div className="typed-out-child my-2">Welcome to the Site</div>
-            </div>
+                <div className="typed-out-child my-2">Welcome to the Site</div>
+              </div>
             </div>
             {/* <div class="typewriter">
             <h1>The cat and the hat.</h1>
@@ -65,7 +87,7 @@ export default function Home() {
           <h1 align="center" className="mt-5">
             Know Your Peers
           </h1>
-          <hr align="center" className="w-75 mx-auto mb-5"/>
+          <hr align="center" className="w-75 mx-auto mb-5" />
           <div className="row">
             {studentsList.map((val, key) => {
               return (
@@ -96,10 +118,27 @@ export default function Home() {
             })}
           </div>
         </div>
-        <div className="materialsContent" id="materials">
-        <h1>Materials</h1>
-        <p className="px-4" align="center">This page will display the available materials to help students with their curriculum</p>
-      </div>
+        <div className="container-fluid materialsContent" id="materials">
+          <div className="row">
+            <div className="col">
+              <h1>Materials</h1>
+            </div>
+          </div>
+          <div className="row">
+            {/* Semester wise cards Here */}
+            <p align="center">
+              This Section will display materials to help students with their
+              curriculum.
+            </p>
+            {sem.map((item, index) => {
+              return <div className="col">
+              <div className="card p-3 m-3" align="center">
+                <h2>{item}</h2>
+              </div>
+              </div>;
+            })}
+          </div>
+        </div>
       </div>
     </>
   );

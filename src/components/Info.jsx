@@ -41,7 +41,7 @@ export default function Info() {
   const handleShow = () => setShow(true);
 
   const addData = () => {
-    Axios.post("https://sever-parthbhuva97.vercel.app/add", {
+    Axios.post("https://sever-parthbhuva97.vercel.app/addStudent", {
       name: name,
       course: course,
       sem: sem,

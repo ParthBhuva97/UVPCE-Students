@@ -121,7 +121,7 @@ export default function Home() {
           </div>
           <div className="row">
             <div className="col m-5" align="right">
-              <button className="btn btn-primary" onClick={()=>{navigate('about')}}>Add Your Data</button>
+              <button className="button-30" onClick={()=>{navigate('about')}}>Add Your Data</button>
             </div>
           </div>
         </div>

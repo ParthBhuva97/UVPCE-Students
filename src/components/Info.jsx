@@ -51,7 +51,7 @@ export default function Info() {
       insta: insta,
       github: github,
     }).then(() => {
-      navigate("/home");
+      navigate('/home');
     });
     console.log("Done");
   };
@@ -180,7 +180,7 @@ export default function Info() {
                   </InputGroup>
                 </Row>
 
-                <Button type="submit" variant="primary" onClick={() => {
+                <Button variant="primary" onClick={() => {
                   if(insta !== '' && github !== ''){
                     handleShow();
                   }

@@ -5,13 +5,15 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import Axios from "axios";
 import { BsGithub, BsInstagram } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavbarStyle = styled.div`
   background-color: black;
 `;
 
 export default function Home() {
+
+  const navigate = useNavigate();
   const [studentsList, setStudentsList] = useState([]);
   const [semesterList, setSemesterList] = useState([]);
 
@@ -116,6 +118,11 @@ export default function Home() {
                 </div>
               );
             })}
+          </div>
+          <div className="row">
+            <div className="col m-5" align="right">
+              <button className="btn btn-primary" onClick={()=>{navigate('about')}}>Add Your Data</button>
+            </div>
           </div>
         </div>
         <div className="container-fluid materialsContent" id="materials">

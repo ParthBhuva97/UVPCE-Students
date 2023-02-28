@@ -90,10 +90,10 @@ export default function Home() {
             Know Your Peers
           </h1>
           <hr align="center" className="w-75 mx-auto mb-5" />
-          <div className="row">
+          <div className="row d-flex align-items-center justify-content-center">
             {studentsList.map((val, key) => {
               return (
-                <div className="col d-flex align-items-center justify-content-center m-3">
+                <div className="col-lg-3 d-flex align-items-center justify-content-center m-3">
                   <div className="card p-3" key={key}>
                     <h2 className="display-6 ps-1 pe-5 mb-0">
                       {val.studentName}

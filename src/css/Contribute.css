@@ -11,3 +11,13 @@
     flex-direction: column;
     background-color: #F8F8FF;
 }
+
+.codeSnippet{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.copyBtn{
+    cursor: pointer;
+}

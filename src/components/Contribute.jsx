@@ -4,9 +4,10 @@ import Navigation from "./Navigation";
 import "../css/Contribute.css";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { useState } from "react";
+import {FiCopy} from 'react-icons/fi';
 
 const NavbarStyle = styled.div`
-  background-color: #06283D;
+  background-color: #06283d;
   .navComp {
     color: white !important;
   }
@@ -26,12 +27,21 @@ git push
 
 export default function Contribute() {
   const [isCopied, setIsCopied] = useState(false);
+  const [isCopied2, setIsCopied2] = useState(false);
 
-  const handleCopyClick = () => {
+
+  const onCopyText = () => {
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
-    }, 2000);
+    }, 1000);
+  };
+
+  const onCopyText2 = () => {
+    setIsCopied2(true);
+    setTimeout(() => {
+      setIsCopied2(false);
+    }, 1000);
   };
 
   return (
@@ -55,7 +65,8 @@ export default function Contribute() {
             Before you can contribute to our project, you'll need to create a
             GitHub account if you don't already have one. GitHub is a platform
             where developers can collaborate on open-source projects. It's free
-            to create an account, and you can sign up at <a href="https://github.com/">github.com</a>.
+            to create an account, and you can sign up at{" "}
+            <a href="https://github.com/">github.com</a>.
           </p>
         </div>
         <div className="content s-2 mx-5">
@@ -64,9 +75,14 @@ export default function Contribute() {
             Once you've created your GitHub account, you'll need to fork our
             repository. Forking a repository creates a copy of the project on
             your own GitHub account, which you can then modify and submit
-            changes back to us for review. 
+            changes back to us for review.
           </p>
-          <h6>Repository Link: <a href="https://github.com/ParthBhuva97/UVPCE-Students">UVPCE-Students</a></h6>
+          <h6>
+            Repository Link:{" "}
+            <a href="https://github.com/ParthBhuva97/UVPCE-Students">
+              UVPCE-Students
+            </a>
+          </h6>
           <p>To fork our repository:</p>
           <ol>
             <li>Navigate to our repository on GitHub.</li>
@@ -113,33 +129,49 @@ export default function Contribute() {
               Run the following command, replacing REPO_URL with the URL you
               copied in step 2:
             </li>
-            <br/>
-          <pre>
-            <code>{codeSnippet}</code>
-          </pre>
-          <li>Make your changes to the files on your local machine.</li>
-          <li>Once you're done, commit your changes with the following commands:</li>
-          <br/>
-          <pre>
-            <code>{codeSnippet2}</code>
-          </pre>
+            <br />
+            <pre className="codeSnippet">
+                <code>{codeSnippet}</code>
+              <CopyToClipboard text={codeSnippet} onCopy={onCopyText}>
+            <span>{isCopied ? "Copied!" : <FiCopy className="copyBtn"/>} </span>
+          </CopyToClipboard>
+            </pre>
+            <li>Make your changes to the files on your local machine.</li>
+            <li>
+              Once you're done, commit your changes with the following commands:
+            </li>
+            <br />
+            <pre className="codeSnippet">
+              <code>{codeSnippet2}</code>
+              <CopyToClipboard text={codeSnippet2} onCopy={onCopyText2}>
+            <span>{isCopied2 ? "Copied!" : <FiCopy className="copyBtn"/>} </span>
+          </CopyToClipboard>
+            </pre>
           </ol>
         </div>
         <div className="content s-4 mx-5">
           <h3>Step 4: Submit a Pull Request</h3>
           <p>
-          After you've made your changes, you'll need to submit a pull request to us so that we can review your changes and potentially merge them into our main codebase. To submit a pull request:
+            After you've made your changes, you'll need to submit a pull request
+            to us so that we can review your changes and potentially merge them
+            into our main codebase. To submit a pull request:
           </p>
           <ol>
             <li>Navigate to your forked repository on GitHub</li>
-            <li>
-            Click the green "Compare & pull request" button.
-            </li>
+            <li>Click the green "Compare & pull request" button.</li>
             <li>Add a brief description of the changes you made.</li>
             <li>Click the "Create pull request" button.</li>
           </ol>
-          <p>We'll review your changes as soon as we can, and we may ask for additional changes or provide feedback. Once your changes have been approved, we'll merge them into our main codebase and they'll be live on our website!</p>
-            <p>We hope this guide has been helpful, and we're excited to see what contributions you'll make to our project.</p>
+          <p>
+            We'll review your changes as soon as we can, and we may ask for
+            additional changes or provide feedback. Once your changes have been
+            approved, we'll merge them into our main codebase and they'll be
+            live on our website!
+          </p>
+          <p>
+            We hope this guide has been helpful, and we're excited to see what
+            contributions you'll make to our project.
+          </p>
         </div>
       </div>
     </>

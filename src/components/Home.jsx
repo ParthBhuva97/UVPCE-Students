@@ -32,7 +32,9 @@ export default function Home() {
   useEffect(() => {
     Axios.get("https://sever-parthbhuva97.vercel.app/getStudents").then(
       (response) => {
-        setStudentsList(response.data);
+        let list = response.data;
+        list = list.sort(() => Math.random() - 0.5)
+        setStudentsList(list);
       }
     );
 
@@ -91,7 +93,8 @@ export default function Home() {
           </h1>
           <hr align="center" className="w-75 mx-auto mb-5" />
           <div className="row d-flex align-items-center justify-content-center">
-            {studentsList.map((val, key) => {
+            {
+              studentsList.map((val, key) => {
               return (
                 <div className="col-lg-3 d-flex align-items-center justify-content-center m-3">
                   <div className="card p-3" key={key}>

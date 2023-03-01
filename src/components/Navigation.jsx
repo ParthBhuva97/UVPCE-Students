@@ -12,7 +12,7 @@ export default function Navigation() {
     <div className="navContainer"> 
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand className="brand">UVPCE</Navbar.Brand>
+        <NavLink className="brand" to="/">UVPCE</NavLink>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">

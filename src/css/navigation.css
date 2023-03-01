@@ -15,6 +15,14 @@ body {margin:0;}
 }
 .brand{
     font-size: 1.5rem;
+    text-decoration: none;
+    color: white;
+    transition: ease all 0.6s;
+}
+
+.brand:hover{
+  color: rgb(146, 146, 146);
+    letter-spacing: 0.03rem;
 }
 .navComp{
     color: white;
@@ -27,8 +35,6 @@ body {margin:0;}
 .navComp:hover{
     color: rgb(146, 146, 146);
     letter-spacing: 0.03rem;
-    /* font-size: 1.15rem; */
-    text-shadow: 1px 1px 0px #F5F5F5;
 }
 
 ::-webkit-scrollbar-track

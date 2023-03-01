@@ -12,7 +12,6 @@ export default function App() {
       <Route exact path="/home" element={<Home/>}></Route>
       <Route exact path="/about" element={<Info/>}></Route>
       <Route exact path="/contribute" element={<Contribute/>}></Route>
-
     </Routes>
   );
 }

@@ -83,7 +83,7 @@
 
   .card{
     transition: ease all 0.7s;
-    background-color: transparent;
+    background-color: white;
   }
 
   .card:hover{

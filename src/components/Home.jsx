@@ -130,7 +130,7 @@ export default function Home() {
         </div>
         <div className="container-fluid materialsContent" id="materials">
           <div className="row">
-            <div className="col">
+            <div className="col mt-5">
               <h1>Materials</h1>
             </div>
           </div>

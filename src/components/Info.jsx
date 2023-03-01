@@ -98,11 +98,17 @@ export default function Info() {
 
                   <Form.Group as={Col} controlId="year">
                     <Form.Control
-                      type="year"
+                      type="number"
                       placeholder="Year"
                       required
                       onChange={(event) => {
-                        setYear(event.target.value);
+                        if(event.target.value.length <= 4){
+                          setYear(event.target.value);
+                        }
+                        else{
+                          event.target.value = 0;
+                          alert("Year is not valid");
+                        }
                       }}
                     />
                   </Form.Group>
@@ -112,12 +118,18 @@ export default function Info() {
                   <Form.Group as={Col} controlId="sem">
                     <Form.Control
                       type="number"
-                      min="0"
+                      min="1"
                       max="8"
                       placeholder="Semester"
                       required
                       onChange={(event) => {
-                        setSem(event.target.value);
+                        if(event.target.value > 0 && event.target.value <= 8){
+                          setSem(event.target.value);
+                        }
+                        else{
+                          event.target.value = 1;
+                          alert("Please Enter Valid Semester");
+                        }
                       }}
                     />
                   </Form.Group>
@@ -142,8 +154,13 @@ export default function Info() {
                       cols="60"
                       placeholder="Tell Us More About Yourself"
                       required
-                      onChange={(event) => {
-                        setAbout(event.target.value);
+                      onBlur={(event) => {
+                        if(event.target.value.length > 125 && event.target.value.length < 130){
+                          setAbout(event.target.value);
+                        }
+                        else{
+                          alert("About You should be 125 to 130 characters long.");
+                        }
                       }}
                     ></textarea>
                   </Form.Group>
@@ -181,7 +198,7 @@ export default function Info() {
                 </Row>
 
                 <Button variant="primary" onClick={() => {
-                  if(insta !== '' && github !== ''){
+                  if(insta !== '' && github !== '' && about !== '') {
                     handleShow();
                   }
                   else{

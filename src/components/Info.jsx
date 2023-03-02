@@ -27,6 +27,7 @@ const NavbarStyle = styled.div`
 
 export default function Info() {
   const [name, setName] = useState("");
+  const [aboutchars, setAboutChars] = useState(0);
   const [course, setCourse] = useState("");
   const [year, setYear] = useState(0);
   const [sem, setSem] = useState(0);
@@ -154,15 +155,16 @@ export default function Info() {
                       cols="60"
                       placeholder="Tell Us More About Yourself"
                       required
+                      onChange={(event) =>{
+                        setAboutChars(event.target.value.length);
+                      }}
                       onBlur={(event) => {
                         if(event.target.value.length > 125 && event.target.value.length < 130){
                           setAbout(event.target.value);
                         }
-                        else{
-                          alert("About You should be 125 to 130 characters long.");
-                        }
                       }}
                     ></textarea>
+                    <p className="mb-0 text-muted">{aboutchars}/130</p>
                   </Form.Group>
                 </Row>
 
@@ -198,12 +200,16 @@ export default function Info() {
                 </Row>
 
                 <Button variant="primary" onClick={() => {
-                  if(insta !== '' && github !== '' && about !== '') {
+                  if(insta !== '' && github !== '' && about.length !== 0) {
                     handleShow();
                   }
-                  else{
-                    alert('Please Enter Valid Data');
+                  else if(about.length < 125 || about.length >130){
                     handleClose();
+                    alert("About section contains invalid number of characters");
+                  }
+                  else{
+                    handleClose();
+                    alert('Please Enter Valid Data');
                   }
                 }}>
                   Submit

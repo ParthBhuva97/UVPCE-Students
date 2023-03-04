@@ -12,7 +12,6 @@ const NavbarStyle = styled.div`
 `;
 
 export default function Home() {
-
   const navigate = useNavigate();
   const [studentsList, setStudentsList] = useState([]);
   const [semesterList, setSemesterList] = useState([]);
@@ -33,7 +32,7 @@ export default function Home() {
     Axios.get("https://sever-parthbhuva97.vercel.app/getStudents").then(
       (response) => {
         let list = response.data;
-        list = list.sort(() => Math.random() - 0.5)
+        list = list.sort(() => Math.random() - 0.5);
         setStudentsList(list);
       }
     );
@@ -93,28 +92,41 @@ export default function Home() {
           </h1>
           <hr align="center" className="w-75 mx-auto mb-5" />
           <div className="row d-flex align-items-center justify-content-center">
-            {
-              studentsList.map((val, key) => {
+            {studentsList.map((val, key) => {
               return (
                 <div className="col-lg-3 d-flex align-items-center justify-content-center m-3">
-                  <div className="card p-3" key={key}>
-                    <h2 className="display-6 ps-1 pe-5 mb-0">
-                      {val.studentName}
-                    </h2>
-                    <p className="text-muted ps-1 mb-0">
-                      {"Course: " + val.course + " | Year: " + val.year}
-                    </p>
-                    <p className="text-muted ps-1 pb-2 mb-3 border-bottom">
-                      {"Sem: " + val.sem + " | From: " + val.from}
-                    </p>
-                    <h5 className="ps-1">About Me</h5>
-                    <h6 className="text-muted ps-1">{val.about}</h6>
-                    <div className="socials d-flex ms-auto">
+                  <div class="card">
+                    <h1>{val.studentName}</h1>
+                    <div class="card-item">
+                      <span class="card-span">
+                        Course <span class="card-span-style">:</span>
+                        <span class="card-span-value"> {val.course}</span>
+                      </span>
+                      <span>|</span>
+                      <span class="card-span">
+                        Year <span class="card-span-style">:</span>
+                        <span class="card-span-value"> {val.year}</span>
+                      </span>
+                    </div>
+                    <div class="card-item">
+                      <span class="card-span">
+                        Sem <span class="card-span-style">:</span>
+                        <span class="card-span-value"> {val.sem}</span>
+                      </span>
+                      <span>|</span>
+                      <span class="card-span">
+                        From <span class="card-span-style">:</span>
+                        <span class="card-span-value"> {val.from}</span>
+                      </span>
+                    </div>
+                    <h5>About Me</h5>
+                    <p>{val.about}</p>
+                    <div class="icons">
                       <Link to={"https://" + val.github}>
-                        <BsGithub className="ms-2 me-2 github" />
+                        <BsGithub className="fa-github" />
                       </Link>
                       <Link to={"https://" + val.insta}>
-                        <BsInstagram className="ms-2 me-2 insta" />
+                        <BsInstagram className="fa-instagram" />
                       </Link>
                     </div>
                   </div>
@@ -124,7 +136,14 @@ export default function Home() {
           </div>
           <div className="row">
             <div className="col m-5" align="right">
-              <button className="button-30" onClick={()=>{navigate('/about')}}>Add Your Data</button>
+              <button
+                className="button-30"
+                onClick={() => {
+                  navigate("/about");
+                }}
+              >
+                Add Your Data
+              </button>
             </div>
           </div>
         </div>
@@ -141,11 +160,13 @@ export default function Home() {
               curriculum.
             </p>
             {sem.map((item, index) => {
-              return <div className="col col-lg-3">
-              <div className="card p-3 m-3" align="center">
-                <h2>{item}</h2>
-              </div>
-              </div>;
+              return (
+                <div className="col col-lg-3">
+                  <div className="card-sem p-3 m-3" align="center">
+                    <h2>{item}</h2>
+                  </div>
+                </div>
+              );
             })}
           </div>
         </div>
